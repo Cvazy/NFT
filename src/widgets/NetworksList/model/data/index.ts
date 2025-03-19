@@ -3,6 +3,7 @@ import InstagramLogo from "shared/assets/images/networks/Instagram.svg";
 import LinkedInLogo from "shared/assets/images/networks/LinkedIn.svg";
 import FacebookLogo from "shared/assets/images/networks/Facebook.svg";
 import TwitterLogo from "shared/assets/images/networks/Twitter.svg";
+import TwitterLightLogo from "shared/assets/images/networks/TwitterLight.svg";
 
 export const NETWORKS: INetwork[] = [
   {
@@ -26,6 +27,7 @@ export const NETWORKS: INetwork[] = [
   {
     name: "Twitter",
     logo: TwitterLogo,
+    logoLight: TwitterLightLogo,
     link: "https://twitter.com",
   },
 ];

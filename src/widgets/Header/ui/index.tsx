@@ -24,19 +24,19 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-20 ${isScroll ? "bg-white" : "bg-background"} w-full md:rounded-b-2xl`}
+      className={`sticky top-0 z-20 ${isScroll ? "bg-white md:rounded-b-2xl" : "bg-background"} transition-all duration-500 w-full`}
     >
       <MobileMenu isOpen={isMobileMenuOpen} />
 
       <div
         className={
-          "flex justify-center relative z-20 w-full h-[108px] md:h-auto"
+          "flex justify-center relative z-20 px-30px w-full h-[108px] md:h-auto"
         }
       >
         <div className={"max-w-limitation w-full"}>
           <div
             className={
-              "flex flex-col items-center gap-30px px-30px pt-30px md:py-8 md:gap-0"
+              "flex flex-col items-center gap-30px pt-30px md:py-8 md:gap-0"
             }
           >
             <div className={"flex justify-between items-center gap-6 w-full"}>
@@ -92,7 +92,9 @@ export const Header = () => {
               </div>
             </div>
 
-            <div className={"block bg-light_gray w-full h-px md:hidden"}></div>
+            <div
+              className={"block bg-light_gray w-full h-[0.5px] md:hidden"}
+            ></div>
           </div>
         </div>
       </div>
