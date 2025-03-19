@@ -71,12 +71,12 @@ export const Banner = () => {
                 >
                   <div
                     className={
-                      "flex items-center justify-center overflow-hidden object-cover object-center rounded-lg relative z-10 w-full max-w-[251px] max-h-[130px] min-[480px]:max-w-full min-[480px]:max-h-full md:rounded-xl xl:rounded-2xl lg:col-span-1"
+                      "flex items-center justify-center overflow-hidden rounded-lg relative z-10 w-full max-w-[251px] max-h-[130px] min-[480px]:max-w-full min-[480px]:max-h-full md:rounded-xl xl:rounded-2xl lg:col-span-1"
                     }
                   >
                     <img
                       className={
-                        "block select-none rounded-lg w-full h-full md:rounded-xl xl:rounded-2xl"
+                        "block select-none rounded-lg object-cover object-center w-full h-full md:rounded-xl xl:rounded-2xl"
                       }
                       src={BannerImage}
                       alt={"Create and Sell NFTs"}
