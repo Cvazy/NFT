@@ -24,13 +24,13 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-20 ${isScroll ? "bg-white md:rounded-b-2xl" : "bg-background"} transition-all duration-500 w-full`}
+      className={`sticky top-0 z-40 ${isScroll ? "bg-white md:rounded-b-2xl" : "bg-background"} transition-all duration-500 w-full`}
     >
       <MobileMenu isOpen={isMobileMenuOpen} />
 
       <div
         className={
-          "flex justify-center relative z-20 px-30px w-full h-[108px] md:h-auto"
+          "flex justify-center relative z-40 px-30px w-full h-[108px] md:h-auto"
         }
       >
         <div className={"max-w-limitation w-full"}>

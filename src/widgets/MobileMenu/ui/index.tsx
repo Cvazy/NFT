@@ -15,7 +15,7 @@ export const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
       animate={{ height: menuHeight }}
       transition={{ duration: 0.5, ease: "easeInOut", delay: isOpen ? 0 : 0.5 }}
       className={
-        "absolute top-[108px] left-0 w-full bg-background z-10 overflow-hidden"
+        "absolute top-[108px] left-0 w-full bg-background z-30 overflow-hidden md:hidden"
       }
     >
       <motion.div

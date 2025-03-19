@@ -10,6 +10,7 @@ module.exports = {
         nav_item: "42px",
       },
       spacing: {
+        "22px": "22px",
         "30px": "30px",
       },
       fontSize: {
@@ -40,6 +41,7 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
       },
     },
   },
