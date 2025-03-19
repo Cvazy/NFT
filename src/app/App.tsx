@@ -8,7 +8,9 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <div
-        className={"flex flex-col items-center min-h-dvh w-full h-max relative"}
+        className={
+          "flex flex-col items-center min-h-dvh w-full h-max relative bg-background"
+        }
       >
         <Header />
 

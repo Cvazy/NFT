@@ -1,6 +1,22 @@
+@import "shared/assets/fonts/styles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #F9F9F9;
+  --swiper-bg: #F1F1F1;
+  --gray: #484848;
+  --light-gray: #CBCBCB;
+  --title-gray: #C5C5C5;
+  --description-blue: #94A3B8;
+  --menu-text-gray: #606060;
+  --dark: #141416;
+  --dark-btn-hover: #222222;
+  --light-button-hover: #D7D7D7;
+  --medium-button-hover: #C3C3C3;
+}
 
 * {
   box-sizing: border-box;
