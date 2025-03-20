@@ -55,3 +55,15 @@ textarea {
 path {
   outline: none;
 }
+
+@media (min-width: 1920px) {
+  .max-w-limitation {
+    max-width: 1480px;
+  }
+}
+
+@media (min-width: 2480px) {
+  .max-w-limitation {
+    max-width: 1560px;
+  }
+}

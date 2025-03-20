@@ -29,12 +29,12 @@ export const NFTContainer = () => {
       <div className={"flex justify-center w-full"}>
         <div
           className={
-            "flex flex-col items-center gap-[50px] py-[50px] w-full xl:py-[70px] xl:gap-[70px]"
+            "flex flex-col items-center gap-[50px] py-[50px] w-full xl:py-[70px] xl:gap-[70px] min-[1920px]:py-28"
           }
         >
           <h2
             className={
-              "text-3xl leading-[30px] font-poppins font-semibold text-title_gray text-center sm:text-[33px] sm:!leading-9 sm:text-left xl:text-[45px] xl:!leading-[48px]"
+              "text-3xl leading-[30px] font-poppins font-semibold text-title_gray text-center sm:text-[33px] sm:!leading-9 sm:text-left xl:text-[45px] xl:!leading-[48px] min-[1920px]:text-[56px] min-[1920px]:!leading-[60px]"
             }
           >
             Weekly - Top NFT
@@ -60,13 +60,18 @@ export const NFTContainer = () => {
                 1280: {
                   spaceBetween: 40,
                 },
+                1920: {
+                  centeredSlides: true,
+                },
               }}
               className={"!overflow-y-visible"}
             >
               {NFTData.map(({ id, name, price, img }) => (
                 <SwiperSlide
                   key={id}
-                  className={"max-w-[210px] xl:max-w-[281px]"}
+                  className={
+                    "max-w-[210px] xl:max-w-[281px] min-[1920px]:max-w-[327px]"
+                  }
                 >
                   <NFT name={name} price={price} img={img} />
                 </SwiperSlide>
@@ -77,7 +82,7 @@ export const NFTContainer = () => {
           <div className={"flex justify-center items-center w-full"}>
             <div
               className={
-                "flex items-center justify-center gap-22px bg-[#FCFCFD] rounded-xl w-[124px] h-12 shadow-[0_32px_26px_rgba(15,15,15,0.12)] xl:gap-30px xl:rounded-2xl xl:w-[166px] xl:h-16"
+                "flex items-center justify-center gap-22px bg-[#FCFCFD] rounded-xl w-[124px] h-12 shadow-[0_32px_26px_rgba(15,15,15,0.12)] xl:gap-30px xl:rounded-2xl xl:w-[166px] xl:h-16 min-[1920px]:w-[204px] min-[1920px]:h-20"
               }
             >
               <button
@@ -88,14 +93,18 @@ export const NFTContainer = () => {
                   src={ArrowIcon}
                   alt={"Arrow"}
                   className={
-                    "block select-none w-[18px] h-[18px] xl:w-6 xl:h-6"
+                    "block select-none w-[18px] h-[18px] xl:w-6 xl:h-6 min-[1920px]:w-8 min-[1920px]:h-8"
                   }
                   loading={"lazy"}
                   draggable={"false"}
                 />
               </button>
 
-              <div className={"bg-[#E6E8EC] w-0.5 h-[18px] xl:h-6"}></div>
+              <div
+                className={
+                  "bg-[#E6E8EC] w-0.5 h-[18px] xl:h-6 min-[1920px]:h-8"
+                }
+              ></div>
 
               <button
                 type="button"
@@ -105,7 +114,7 @@ export const NFTContainer = () => {
                   src={ArrowIcon}
                   alt={"Arrow"}
                   className={
-                    "block select-none rotate-180 w-[18px] h-[18px] xl:w-6 xl:h-6"
+                    "block select-none rotate-180 w-[18px] h-[18px] xl:w-6 xl:h-6 min-[1920px]:w-8 min-[1920px]:h-8"
                   }
                   loading={"lazy"}
                   draggable={"false"}

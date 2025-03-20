@@ -5,7 +5,7 @@ export const NavList = () => {
     <nav className={"w-full"}>
       <ul
         className={
-          "flex flex-col items-start gap-5 p-0 m-0 list-none w-full md:flex-row md:justify-between md:gap-8"
+          "flex flex-col items-start gap-5 p-0 m-0 list-none w-full md:flex-row md:justify-between md:gap-8 min-[1920px]:gap-11"
         }
       >
         <NavItem text={"Discover"} link={"/"} />

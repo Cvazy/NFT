@@ -15,7 +15,7 @@ export const NetworksList = ({ isFooter = false }: INetworksListProps) => {
             width={isFooter ? 17 : 24}
             src={isFooter && logoLight ? logoLight : logo}
             alt={name}
-            className={"block"}
+            className={`block min-[1920px]:w-7 min-[1920px]:h-7`}
           />
         </a>
       ))}

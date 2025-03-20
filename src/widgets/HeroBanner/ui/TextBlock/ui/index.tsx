@@ -82,14 +82,14 @@ export const TextBlock = () => {
         >
           <Button
             className={
-              "text-center text-[10px] !leading-normal font-poppins whitespace-nowrap text-white font-medium uppercase bg-dark py-[15px] px-[21px] rounded-[10px] md:py-3 md:rounded-[9px] xl:text-base xl:px-8 xl:py-[18px] hover:bg-dark_btn_hover"
+              "text-center text-[10px] !leading-normal font-poppins whitespace-nowrap text-white font-medium uppercase bg-dark py-[15px] px-[21px] rounded-[10px] md:py-3 md:rounded-[9px] xl:text-base xl:px-8 xl:py-[18px] min-[1920px]:text-lg hover:bg-dark_btn_hover"
             }
             text={"Explore More"}
           />
 
           <Button
             className={
-              "text-center text-[10px] !leading-normal font-poppins whitespace-nowrap text-dark font-medium uppercase bg-white py-[15px] px-[21px] rounded-[10px] border-2 border-solid border-dark md:py-3 md:rounded-[9px] xl:text-base xl:px-8 xl:py-[18px] hover:bg-[#F2F2F2]"
+              "text-center text-[10px] !leading-normal font-poppins whitespace-nowrap text-dark font-medium uppercase bg-white py-[15px] px-[21px] rounded-[10px] border-2 border-solid border-dark md:py-3 md:rounded-[9px] xl:text-base xl:px-8 xl:py-[18px] min-[1920px]:text-lg hover:bg-[#F2F2F2]"
             }
             text={"create NFT"}
           />

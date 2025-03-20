@@ -59,7 +59,9 @@ export const ImagesBlock = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 100 }}
             transition={{ duration: 0.5, delay: 1.2 }}
-            className={"absolute z-5 -top-6 right-0 md:-top-7 xl:-top-8"}
+            className={
+              "absolute z-5 -top-6 right-0 md:-top-7 xl:-top-8 min-[1920px]:scale-[1.35] min-[1920px]:top-4 min-[1920px]:right-8"
+            }
           >
             <img
               className={"block select-none w-full h-full"}
@@ -75,7 +77,7 @@ export const ImagesBlock = () => {
             animate={{ opacity: 100 }}
             transition={{ duration: 0.5, delay: 1.75 }}
             className={
-              "absolute z-5 top-16 -left-3 md:top-[70px] md:-left-4 xl:-left-5 xl:top-[92px]"
+              "absolute z-5 top-16 -left-3 md:top-[70px] md:-left-4 xl:-left-5 xl:top-[92px] min-[1920px]:top-[20%] min-[1920px]:left-8 min-[1920px]:scale-[1.35]"
             }
           >
             <img

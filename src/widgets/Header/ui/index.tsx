@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-40 ${isScroll ? "bg-white md:rounded-b-2xl" : "bg-background"} transition-all duration-500 w-full`}
+      className={`sticky top-0 z-40 ${isScroll ? "bg-white md:rounded-b-2xl min-[1920px]:md:rounded-b-3xl" : "bg-background"} transition-all duration-500 w-full`}
     >
       <MobileMenu isOpen={isMobileMenuOpen} />
 
@@ -36,7 +36,7 @@ export const Header = () => {
         <div className={"max-w-limitation w-full"}>
           <div
             className={
-              "flex flex-col items-center gap-30px pt-30px md:py-8 md:gap-0"
+              "flex flex-col items-center gap-30px pt-30px md:py-8 md:gap-0 min-[1920px]:py-11"
             }
           >
             <div className={"flex justify-between items-center gap-6 w-full"}>
@@ -45,11 +45,13 @@ export const Header = () => {
               >
                 <Link
                   to={"/"}
-                  className={"flex items-center gap-2 flex-nowrap"}
+                  className={
+                    "flex items-center gap-2 flex-nowrap min-[1920px]:gap-4"
+                  }
                 >
                   <img
                     className={
-                      "block select-none w-[42px] h-[42px] md:w-[38px] md:h-[38px]"
+                      "block select-none w-[42px] h-[42px] md:w-[38px] md:h-[38px] min-[1920px]:w-[50px] min-[1920px]:h-[50px]"
                     }
                     src={LogoIcon}
                     alt={"Logo"}
@@ -77,7 +79,7 @@ export const Header = () => {
                 <div className={"hidden md:block"}>
                   <Button
                     className={
-                      "text-center text-11.5px leading-[18px] font-inter whitespace-nowrap text-white font-semibold uppercase bg-dark py-[11px] px-4 rounded-11.5px hover:bg-dark_btn_hover"
+                      "text-center text-11.5px leading-[18px] font-inter whitespace-nowrap text-white font-semibold uppercase bg-dark py-[11px] px-4 rounded-11.5px min-[1920px]:py-3.5 min-[1920px]:px-7 min-[1920px]:rounded-2xl min-[1920px]:text-base hover:bg-dark_btn_hover"
                     }
                     text={"Connect Wallet"}
                   />

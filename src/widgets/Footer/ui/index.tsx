@@ -86,7 +86,7 @@ export const Footer = () => {
             >
               <p
                 className={
-                  "font-inter text-sm !leading-4 text-[#999999] font-medium text-center md:text-left md:text-xs lg:text-lg lg:!leading-7"
+                  "font-inter text-sm !leading-4 text-[#999999] font-medium text-center md:text-left md:text-xs lg:text-lg lg:!leading-7 min-[1920px]:text-2xl"
                 }
               >
                 © 2023{" "}
