@@ -1,28 +1,36 @@
-import { NFT, INFT, useFetchAllNFTQuery } from "entities/NFT";
+import { NFT, useFetchAllNFTQuery } from "entities/NFT";
 import ArrowIcon from "shared/assets/images/icons/arrow.svg";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/navigation";
-
-import { FreeMode, Keyboard, Navigation } from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
-import type { Swiper as SwiperType } from "swiper";
+import { motion, useDragControls, useMotionValue } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export const NFTContainer = () => {
-  const swiperRef = useRef<SwiperType | null>(null);
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-
   const { data } = useFetchAllNFTQuery();
 
-  const NFTData: INFT[] = data || [];
+  const NFTData = useMemo(() => data || [], [data]);
+
+  const [index, setIndex] = useState<number>(0);
+  const x = useMotionValue(0);
+  const dragControls = useDragControls();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [itemWidth, setItemWidth] = useState(0);
 
   useEffect(() => {
-    if (swiperInstance) {
-      swiperRef.current = swiperInstance;
-      swiperInstance.update();
+    if (containerRef.current) {
+      const firstChild = containerRef.current.children[0] as HTMLElement;
+      if (firstChild) {
+        const gap = window.innerWidth >= 1280 ? 40 : 32;
+        setItemWidth(firstChild.offsetWidth + gap);
+      }
     }
-  }, [swiperInstance]);
+  }, [NFTData]);
+
+  const nextSlide = () => {
+    setIndex((prev) => (prev + 1) % NFTData.length);
+  };
+
+  const prevSlide = () => {
+    setIndex((prev) => (prev - 1 + NFTData.length) % NFTData.length);
+  };
 
   return (
     <div className={"bg-swiper_bg w-full"}>
@@ -40,43 +48,28 @@ export const NFTContainer = () => {
             Weekly - Top NFT
           </h2>
 
-          <div className={"w-full"}>
-            <Swiper
-              slidesPerView={"auto"}
-              spaceBetween={32}
-              loop={true}
-              loopedSlides={7}
-              freeMode={true}
-              watchSlidesProgress={true}
-              navigation={false}
-              speed={500}
-              keyboard={{
-                enabled: true,
+          <div className="relative w-full cursor-grab">
+            <motion.div
+              ref={containerRef}
+              className="flex gap-8 xl:gap-10"
+              drag="x"
+              dragControls={dragControls}
+              dragElastic={0.2}
+              style={{ x }}
+              onDragEnd={(event, info) => {
+                if (info.offset.x < -50) {
+                  nextSlide();
+                } else if (info.offset.x > 50) {
+                  prevSlide();
+                }
               }}
-              grabCursor={true}
-              modules={[FreeMode, Keyboard, Navigation]}
-              onSwiper={setSwiperInstance}
-              breakpoints={{
-                1280: {
-                  spaceBetween: 40,
-                },
-                1920: {
-                  centeredSlides: true,
-                },
-              }}
-              className={"!overflow-y-visible"}
+              animate={{ x: `-${index * itemWidth}px` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {NFTData.map(({ id, name, price, img }) => (
-                <SwiperSlide
-                  key={id}
-                  className={
-                    "max-w-[210px] xl:max-w-[281px] min-[1920px]:max-w-[327px]"
-                  }
-                >
-                  <NFT name={name} price={price} img={img} />
-                </SwiperSlide>
+              {[...NFTData, ...NFTData].map(({ name, price, img }, i) => (
+                <NFT key={i} name={name} price={price} img={img} />
               ))}
-            </Swiper>
+            </motion.div>
           </div>
 
           <div className={"flex justify-center items-center w-full"}>
@@ -85,10 +78,7 @@ export const NFTContainer = () => {
                 "flex items-center justify-center gap-22px bg-[#FCFCFD] rounded-xl w-[124px] h-12 shadow-[0_32px_26px_rgba(15,15,15,0.12)] xl:gap-30px xl:rounded-2xl xl:w-[166px] xl:h-16 min-[1920px]:w-[204px] min-[1920px]:h-20"
               }
             >
-              <button
-                type="button"
-                onClick={() => swiperRef.current?.slidePrev()}
-              >
+              <button type="button" onClick={prevSlide}>
                 <img
                   src={ArrowIcon}
                   alt={"Arrow"}
@@ -106,10 +96,7 @@ export const NFTContainer = () => {
                 }
               ></div>
 
-              <button
-                type="button"
-                onClick={() => swiperRef.current?.slideNext()}
-              >
+              <button type="button" onClick={nextSlide}>
                 <img
                   src={ArrowIcon}
                   alt={"Arrow"}
