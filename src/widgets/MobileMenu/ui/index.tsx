@@ -7,6 +7,22 @@ export const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
   const [menuHeight, setMenuHeight] = useState(0);
 
   useEffect(() => {
+    document.documentElement.style.overflowY = isOpen ? "hidden" : "auto";
+    document.documentElement.style.touchAction = isOpen ? "none" : "auto";
+
+    document.body.style.overflowY = isOpen ? "hidden" : "auto";
+    document.body.style.touchAction = isOpen ? "none" : "auto";
+
+    return () => {
+      document.documentElement.style.overflowY = "auto";
+      document.documentElement.style.touchAction = "auto";
+
+      document.body.style.overflowY = "auto";
+      document.body.style.touchAction = "auto";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     const updateHeight = () => {
       const height = window.visualViewport?.height ?? window.innerHeight;
       setMenuHeight(isOpen ? height - 108 : 0);
