@@ -1,7 +1,7 @@
 import { NFT, useFetchAllNFTQuery } from "entities/NFT";
 import ArrowIcon from "shared/assets/images/icons/arrow.svg";
 import { motion, useDragControls, useMotionValue } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export const NFTContainer = () => {
   const { data } = useFetchAllNFTQuery();
@@ -9,10 +9,18 @@ export const NFTContainer = () => {
   const NFTData = useMemo(() => data || [], [data]);
 
   const [index, setIndex] = useState<number>(0);
-  const x = useMotionValue(0);
+  const x = useMotionValue<number>(0);
   const dragControls = useDragControls();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [itemWidth, setItemWidth] = useState(0);
+  const [itemWidth, setItemWidth] = useState<number>(0);
+
+  const nextSlide = useCallback(() => {
+    setIndex((prev) => (prev + 1) % NFTData.length);
+  }, [NFTData.length]);
+
+  const prevSlide = useCallback(() => {
+    setIndex((prev) => (prev - 1 + NFTData.length) % NFTData.length);
+  }, [NFTData.length]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -24,13 +32,21 @@ export const NFTContainer = () => {
     }
   }, [NFTData]);
 
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % NFTData.length);
-  };
+  useEffect(() => {
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") {
+        nextSlide();
+      } else if (event.key === "ArrowLeft") {
+        prevSlide();
+      }
+    };
 
-  const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + NFTData.length) % NFTData.length);
-  };
+    window.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeydown);
+    };
+  }, [nextSlide, prevSlide]);
 
   return (
     <div className={"bg-swiper_bg w-full"}>
