@@ -42,6 +42,10 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
         outfit: ["Outfit", "sans-serif"],
+        sans: ["Public Sans", "sans-serif"],
+      },
+      zIndex: {
+        5: "5",
       },
     },
   },

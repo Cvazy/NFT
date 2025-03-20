@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import BannerImage from "shared/assets/images/banner.png";
 import { Button } from "shared/ui";
 import MdiEthereumIcon from "shared/assets/images/icons/mdi_ethereum.svg";
 import { getRandomTime, formatTime } from "../utils";
+import { INFT } from "../model";
 
-export const NFT = () => {
+export const NFT = ({ name, price, img }: Omit<INFT, "id">) => {
   const [countdown, setCountdown] = useState<number>(getRandomTime());
 
   useEffect(() => {
@@ -52,8 +52,8 @@ export const NFT = () => {
               className={
                 "block select-none rounded-3xl object-cover object-center w-full h-full"
               }
-              src={BannerImage}
-              alt={"Create and Sell NFTs"}
+              src={img}
+              alt={name}
               loading={"lazy"}
               draggable={"false"}
             />
@@ -66,7 +66,7 @@ export const NFT = () => {
               "font-poppins text-left whitespace-nowrap text-base !leading-[18px] font-semibold text-dark xl:leading-6 xl:text-[22px]"
             }
           >
-            Sun-Glass
+            {name}
           </p>
 
           <div
@@ -103,7 +103,7 @@ export const NFT = () => {
                     "font-poppins text-left whitespace-nowrap text-xs !leading-[14px] font-medium text-dark xl:leading-normal xl:text-base"
                   }
                 >
-                  1.75
+                  {price}
                 </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { NFT } from "entities/NFT";
+import { NFT, INFT, useFetchAllNFTQuery } from "entities/NFT";
 import ArrowIcon from "shared/assets/images/icons/arrow.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,6 +12,10 @@ import type { Swiper as SwiperType } from "swiper";
 export const NFTContainer = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  const { data } = useFetchAllNFTQuery();
+
+  const NFTData: INFT[] = data || [];
 
   useEffect(() => {
     if (swiperInstance) {
@@ -60,9 +64,12 @@ export const NFTContainer = () => {
               }}
               className={"!overflow-y-visible"}
             >
-              {[...Array(7)].map((_, index) => (
-                <SwiperSlide className={"max-w-[210px] xl:max-w-[281px]"}>
-                  <NFT />
+              {NFTData.map(({ id, name, price, img }) => (
+                <SwiperSlide
+                  key={id}
+                  className={"max-w-[210px] xl:max-w-[281px]"}
+                >
+                  <NFT name={name} price={price} img={img} />
                 </SwiperSlide>
               ))}
             </Swiper>

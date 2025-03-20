@@ -6,7 +6,7 @@ interface IButtonProps {
 
 export const Button = ({ className, text, type = "button" }: IButtonProps) => {
   return (
-    <button type={type} className={className}>
+    <button type={type} className={`${className} transition-all duration-500`}>
       {text}
     </button>
   );

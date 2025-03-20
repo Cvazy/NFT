@@ -1,8 +1,12 @@
 import { Button } from "shared/ui";
-import BannerImage from "shared/assets/images/banner.png";
 import BannerShadowImage from "shared/assets/images/banner_shadow.png";
+import { useFetchBannerDataQuery } from "../model";
 
 export const Banner = () => {
+  const { data } = useFetchBannerDataQuery();
+
+  const { title, subtitle, img } = data || {};
+
   return (
     <div className={"w-full"}>
       <div className={"flex justify-center px-6 w-full"}>
@@ -33,7 +37,7 @@ export const Banner = () => {
                         "text-2xl !leading-6 font-poppins font-semibold text-white text-center sm:text-[33px] sm:!leading-9 sm:text-left xl:text-[45px] xl:!leading-[48px]"
                       }
                     >
-                      Create and Sell NFTs
+                      {title}
                     </h2>
 
                     <p
@@ -41,7 +45,7 @@ export const Banner = () => {
                         "opacity-60 font-medium font-poppins text-[10px] leading-tight text-[#D4D4D4] text-center sm:text-left sm:text-[15px] sm:leading-[16.5px] xl:text-xl xl:!leading-[22px]"
                       }
                     >
-                      World’s Largest NFT Place
+                      {subtitle}
                     </p>
                   </div>
 
@@ -78,8 +82,8 @@ export const Banner = () => {
                       className={
                         "block select-none rounded-lg object-cover object-center w-full h-full md:rounded-xl xl:rounded-2xl"
                       }
-                      src={BannerImage}
-                      alt={"Create and Sell NFTs"}
+                      src={img}
+                      alt={title}
                       loading={"lazy"}
                       draggable={"false"}
                       width={251}
