@@ -1,1 +1,1 @@
-export const serverUrl = process.env.REACT_APP_SERVER_URL;
+export const serverUrl = "https://cvazy-cyberjsonserver-287c.twc1.net/";
