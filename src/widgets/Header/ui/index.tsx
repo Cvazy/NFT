@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-40 ${isScroll ? "bg-white md:rounded-b-2xl min-[1920px]:md:rounded-b-3xl" : "bg-background"} transition-all duration-500 w-full`}
+      className={`fixed top-0 z-40 ${isScroll ? "bg-white md:rounded-b-2xl min-[1920px]:md:rounded-b-3xl" : "bg-background"} transition-all duration-500 w-full`}
     >
       <MobileMenu isOpen={isMobileMenuOpen} />
 

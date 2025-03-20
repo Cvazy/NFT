@@ -14,7 +14,7 @@ function App() {
       >
         <Header />
 
-        <main className={"flex flex-grow w-full"}>
+        <main className={"flex flex-grow pt-[108px] w-full md:pt-[104px]"}>
           <AppRouter />
         </main>
 
