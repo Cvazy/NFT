@@ -13,7 +13,7 @@ export const NavItem = ({ text, link, isFooter = false }: INavItemProps) => {
     >
       <Link
         to={link}
-        className={`font-inter font-medium uppercase ${isFooter ? "text-[#B9B9B9] text-sm !leading-5 md:text-xs md:normal-case xl:text-lg xl:!leading-7 min-[1920px]:text-2xl min-[1920px]:!leading-[28px]" : "text-menu_text_gray text-40px leading-42px md:text-sm md:!leading-4 min-[1920px]:text-xl min-[1920px]:!leading-[24px]"} whitespace-nowrap text-left`}
+        className={`font-inter font-medium uppercase ${isFooter ? "text-[#B9B9B9] text-sm !leading-5 md:text-xs md:normal-case xl:text-lg xl:!leading-7 min-[1920px]:text-2xl min-[1920px]:!leading-[28px] hover:text-white" : "text-menu_text_gray text-40px leading-42px md:text-sm md:!leading-4 min-[1920px]:text-xl min-[1920px]:!leading-[24px] hover:text-dark"} transition-all duration-300 whitespace-nowrap text-left`}
       >
         {text}
       </Link>
