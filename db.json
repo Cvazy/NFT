@@ -1,0 +1,52 @@
+{
+  "nft_list": [
+    {
+      "id": 1,
+      "name": "Sun-Glass",
+      "price": 1.75,
+      "img": "/images/NFT/nft1.png"
+    },
+    {
+      "id": 2,
+      "name": "Sun-Glass",
+      "price": 1.15,
+      "img": "/images/NFT/nft3.png"
+    },
+    {
+      "id": 3,
+      "name": "Sun-Glass",
+      "price": 2.20,
+      "img": "/images/NFT/nft5.png"
+    },
+    {
+      "id": 4,
+      "name": "Sun-Glass",
+      "price": 0.52,
+      "img": "/images/NFT/nft2.png"
+    },
+    {
+      "id": 5,
+      "name": "Sun-Glass",
+      "price": 1.95,
+      "img": "/images/NFT/nft4.png"
+    },
+    {
+      "id": 6,
+      "name": "Sun-Glass",
+      "price": 2.15,
+      "img": "/images/NFT/nft1.png"
+    },
+    {
+      "id": 7,
+      "name": "Sun-Glass",
+      "price": 4.75,
+      "img": "/images/NFT/nft5.png"
+    }
+  ],
+  "banner": {
+    "id": 1,
+    "title": "Create and Sell NFTs",
+    "subtitle": "World’s Largest NFT Place",
+    "img": "/images/banner/image.png"
+  }
+}
