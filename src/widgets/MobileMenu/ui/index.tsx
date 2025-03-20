@@ -7,7 +7,17 @@ export const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
   const [menuHeight, setMenuHeight] = useState(0);
 
   useEffect(() => {
-    setMenuHeight(isOpen ? window.innerHeight - 108 : 0);
+    const updateHeight = () => {
+      const height = window.visualViewport?.height ?? window.innerHeight;
+      setMenuHeight(isOpen ? height - 108 : 0);
+    };
+
+    updateHeight(); // Устанавливаем сразу
+    window.visualViewport?.addEventListener("resize", updateHeight);
+
+    return () => {
+      window.visualViewport?.removeEventListener("resize", updateHeight);
+    };
   }, [isOpen]);
 
   return (

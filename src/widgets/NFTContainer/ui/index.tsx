@@ -45,7 +45,6 @@ export const NFTContainer = () => {
               slidesPerView={"auto"}
               spaceBetween={32}
               loop={true}
-              loopAdditionalSlides={7}
               loopedSlides={7}
               freeMode={true}
               watchSlidesProgress={true}
