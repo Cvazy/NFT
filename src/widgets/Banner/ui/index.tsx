@@ -11,20 +11,20 @@ export const Banner = () => {
     <div className={"w-full"}>
       <div className={"flex justify-center px-6 w-full"}>
         <div className={"max-w-limitation w-full"}>
-          <div className={"pt-[70px] pb-[162px] md:py-[90px] xl:py-[120px]"}>
+          <div className={"pt-[70px] pb-28 md:py-[90px] xl:py-[120px]"}>
             <div
               className={
-                "bg-dark rounded-2xl w-full h-[211px] sm:h-auto md:rounded-[22px] xl:rounded-[30px]"
+                "rounded-2xl w-full sm:bg-dark sm:h-auto md:rounded-[22px] xl:rounded-[30px]"
               }
             >
               <div
                 className={
-                  "flex flex-col items-center justify-between gap-[42px] py-22px px-8 w-full sm:grid sm:grid-cols-2 md:pl-10 md:py-6 md:pr-22px lg:grid-cols-3 lg:pl-12 xl:pl-[66px] xl:py-8 xl:pr-8"
+                  "flex flex-col items-center justify-between w-full sm:gap-[42px] sm:py-22px sm:px-8 sm:grid sm:grid-cols-2 md:pl-10 md:py-6 md:pr-22px lg:grid-cols-3 lg:pl-12 xl:pl-[66px] xl:py-8 xl:pr-8"
                 }
               >
                 <div
                   className={
-                    "flex flex-col items-center justify-between gap-[22px] w-full h-full sm:items-start lg:col-span-2"
+                    "flex flex-col items-center gap-[22px] py-[21px] px-8 bg-dark rounded-2xl w-full h-[211px] sm:rounded-none sm:justify-between sm:bg-transparent sm:h-full sm:p-0 sm:items-start lg:col-span-2"
                   }
                 >
                   <div
@@ -71,7 +71,9 @@ export const Banner = () => {
                 </div>
 
                 <div
-                  className={"flex items-center justify-center relative w-full"}
+                  className={
+                    "flex items-center justify-center relative py-[21px] -top-12 px-8 w-full sm:top-0 sm:p-0"
+                  }
                 >
                   <div
                     className={
@@ -91,17 +93,23 @@ export const Banner = () => {
                     />
                   </div>
 
-                  <img
+                  <div
                     className={
-                      "block absolute -top-4 -left-1.5 select-none w-full h-full scale-y-125 sm:hidden"
+                      "flex justify-center items-center absolute -top-4 left-0 w-full h-full min-[480px]:-left-1.5 min-[480px]:scale-110 sm:hidden"
                     }
-                    src={BannerShadowImage}
-                    alt={"Shadow"}
-                    loading={"lazy"}
-                    draggable={"false"}
-                    width={263}
-                    height={130}
-                  />
+                  >
+                    <img
+                      className={
+                        "block select-none w-full h-full max-[480px]:max-w-[324px]"
+                      }
+                      src={BannerShadowImage}
+                      alt={"Shadow"}
+                      loading={"lazy"}
+                      draggable={"false"}
+                      width={263}
+                      height={130}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
